@@ -47,4 +47,4 @@ npm run build
 
 ## Author
 
-- Student ID: `101501186`
+- Tyson Ward-Dicks - 101501186
