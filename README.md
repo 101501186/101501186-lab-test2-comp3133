@@ -2,7 +2,7 @@
 
 The Wizarding World is an Angular application that uses the public Harry Potter API to display character information from the Harry Potter universe.
 
-This project was created for COMP3133 Lab Test 2. The goal was to build an Angular app that fetches data from an external API, displays it in multiple components, and allows users to filter and explore character details.
+The goal of this project was to build an Angular app that fetches data from an external API, displays it in multiple components, and allows users to filter and explore character details.
 
 ## What the app does
 
@@ -106,4 +106,4 @@ npm run build
 
 ## Author
 
-- Student ID: `101501186`
+- Tyson Ward-Dicks - 101501186
