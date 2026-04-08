@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, inject, input, signal } from '@angular/core';
+import { Component, effect, inject, input, output, signal } from '@angular/core';
 
 import { Character } from '../../models/character.model';
 import { HpApiService } from '../../services/hp-api.service';
@@ -14,6 +14,7 @@ export class Characterdetails {
   private readonly hpApiService = inject(HpApiService);
 
   readonly characterId = input<string | null>(null);
+  readonly closed = output<void>();
 
   protected readonly character = signal<Character | null>(null);
   protected readonly isLoading = signal(false);
@@ -53,5 +54,9 @@ export class Characterdetails {
         this.isLoading.set(false);
       }
     });
+  }
+
+  protected closeDetails(): void {
+    this.closed.emit();
   }
 }

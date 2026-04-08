@@ -18,4 +18,8 @@ export class App {
   protected onCharacterSelected(id: string): void {
     this.selectedCharacterId.set(id);
   }
+
+  protected closeCharacterDetails(): void {
+    this.selectedCharacterId.set(null);
+  }
 }

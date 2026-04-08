@@ -9,9 +9,13 @@
 
     <div class="content-layout">
       <app-characterlist (characterSelected)="onCharacterSelected($event)" />
-      <app-characterdetails [characterId]="selectedCharacterId()" />
     </div>
   </section>
 </main>
+
+<app-characterdetails
+  [characterId]="selectedCharacterId()"
+  (closed)="closeCharacterDetails()"
+/>
 
 <router-outlet />

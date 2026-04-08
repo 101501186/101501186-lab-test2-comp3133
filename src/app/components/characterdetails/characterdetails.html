@@ -1,53 +1,66 @@
-<section class="details-panel">
-  <div class="panel-header">
-    <p class="panel-tag">Character Details</p>
-    <h2>Selected Wizard Profile</h2>
-  </div>
+@if (characterId()) {
+  <section class="details-overlay" (click)="closeDetails()">
+    <div class="details-panel" (click)="$event.stopPropagation()">
+      <button class="close-button" type="button" (click)="closeDetails()">Close</button>
 
-  @if (!characterId()) {
-    <p class="details-message">Select a character card to view detailed information.</p>
-  } @else if (isLoading()) {
-    <p class="details-message">Loading character details...</p>
-  } @else if (errorMessage()) {
-    <p class="details-message error">{{ errorMessage() }}</p>
-  } @else if (character(); as selectedCharacter) {
-    <article class="details-card">
-      <div class="details-image-frame">
-        @if (selectedCharacter.image) {
-          <img [src]="selectedCharacter.image" [alt]="selectedCharacter.name" />
-        } @else {
-          <div class="details-image-placeholder">No Image</div>
-        }
+      <div class="panel-header">
+        <p class="panel-tag">Character Details</p>
+        <h2>Selected Wizard Profile</h2>
       </div>
 
-      <div class="details-copy">
-        <h3>{{ selectedCharacter.name }}</h3>
-        <div class="detail-grid">
-          <p><span>Name:</span> {{ selectedCharacter.name }}</p>
-          <p><span>Species:</span> {{ selectedCharacter.species || 'Unknown' }}</p>
-          <p><span>House:</span> {{ selectedCharacter.house || 'Unknown' }}</p>
-          <p>
-            <span>Wizard:</span>
-            @switch (selectedCharacter.wizard) {
-              @case (true) {
-                Yes
-              }
-              @default {
-                No
-              }
+      @if (isLoading()) {
+        <p class="details-message">Loading character details...</p>
+      } @else if (errorMessage()) {
+        <p class="details-message error">{{ errorMessage() }}</p>
+      } @else if (character(); as selectedCharacter) {
+        <article class="details-card">
+          <div class="details-image-frame">
+            @if (selectedCharacter.image) {
+              <img [src]="selectedCharacter.image" [alt]="selectedCharacter.name" />
+            } @else {
+              <div class="details-image-placeholder">No Image</div>
             }
-          </p>
-          <p><span>Ancestry:</span> {{ selectedCharacter.ancestry || 'Unknown' }}</p>
-          <p><span>Actor:</span> {{ selectedCharacter.actor || 'Unknown' }}</p>
-        </div>
+          </div>
 
-        <div class="wand-section">
-          <h4>Wand</h4>
-          <p><span>Wood:</span> {{ selectedCharacter.wand.wood || 'Unknown' }}</p>
-          <p><span>Core:</span> {{ selectedCharacter.wand.core || 'Unknown' }}</p>
-          <p><span>Length:</span> {{ selectedCharacter.wand.length ?? 'Unknown' }}</p>
-        </div>
-      </div>
-    </article>
-  }
-</section>
+          <div class="details-copy">
+            <div class="title-block">
+              <h3>{{ selectedCharacter.name }}</h3>
+              <p class="subtitle">
+                {{ selectedCharacter.house || 'Unknown House' }} •
+                {{ selectedCharacter.species || 'Unknown Species' }}
+              </p>
+            </div>
+
+            <div class="detail-grid">
+              <p><span>Name:</span> {{ selectedCharacter.name }}</p>
+              <p><span>Species:</span> {{ selectedCharacter.species || 'Unknown' }}</p>
+              <p><span>House:</span> {{ selectedCharacter.house || 'Unknown' }}</p>
+              <p>
+                <span>Wizard:</span>
+                @switch (selectedCharacter.wizard) {
+                  @case (true) {
+                    Yes
+                  }
+                  @default {
+                    No
+                  }
+                }
+              </p>
+              <p><span>Ancestry:</span> {{ selectedCharacter.ancestry || 'Unknown' }}</p>
+              <p><span>Actor:</span> {{ selectedCharacter.actor || 'Unknown' }}</p>
+            </div>
+
+            <div class="wand-section">
+              <h4>Wand Details</h4>
+              <div class="wand-grid">
+                <p><span>Wood:</span> {{ selectedCharacter.wand.wood || 'Unknown' }}</p>
+                <p><span>Core:</span> {{ selectedCharacter.wand.core || 'Unknown' }}</p>
+                <p><span>Length:</span> {{ selectedCharacter.wand.length ?? 'Unknown' }}</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+}
