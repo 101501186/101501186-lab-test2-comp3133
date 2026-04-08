@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 import { Character } from '../models/character.model';
 import { HogwartsHouse } from '../models/house.model';
@@ -17,8 +17,10 @@ export class HpApiService {
     return this.http.get<Character[]>(`${this.baseUrl}/characters`);
   }
 
-  getCharacterById(id: string): Observable<Character> {
-    return this.http.get<Character>(`${this.baseUrl}/character/${id}`);
+  getCharacterById(id: string): Observable<Character | null> {
+    return this.http
+      .get<Character | Character[]>(`${this.baseUrl}/character/${id}`)
+      .pipe(map((response) => (Array.isArray(response) ? response[0] ?? null : response)));
   }
 
   getStudents(): Observable<Character[]> {

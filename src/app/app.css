@@ -30,6 +30,13 @@
   gap: 2rem;
 }
 
+.content-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
 .eyebrow {
   margin: 0 0 0.75rem;
   font-size: 0.78rem;
@@ -58,5 +65,11 @@ p {
   .hero {
     padding: 1.5rem;
     border-radius: 22px;
+  }
+}
+
+@media (max-width: 960px) {
+  .content-layout {
+    grid-template-columns: 1fr;
   }
 }

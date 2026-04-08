@@ -7,7 +7,10 @@
       public character endpoint.
     </p>
 
-    <app-characterlist />
+    <div class="content-layout">
+      <app-characterlist (characterSelected)="onCharacterSelected($event)" />
+      <app-characterdetails [characterId]="selectedCharacterId()" />
+    </div>
   </section>
 </main>
 
