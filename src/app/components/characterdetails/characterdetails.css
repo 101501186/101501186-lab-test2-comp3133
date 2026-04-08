@@ -50,7 +50,7 @@
 
 .panel-header h2 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: clamp(1.5rem, 3vw, 2rem);
   letter-spacing: -0.03em;
   color: #172554;
@@ -114,7 +114,7 @@
 
 .details-copy h3 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: clamp(1.7rem, 3vw, 2.3rem);
   color: #111827;
 }
@@ -159,7 +159,7 @@
 
 .wand-section h4 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 1.2rem;
   color: #1d4ed8;
 }

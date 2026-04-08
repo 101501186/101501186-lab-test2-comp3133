@@ -1,11 +1,12 @@
 <main class="app-shell">
   <section class="hero">
-    <p class="eyebrow">COMP3133 Lab Test 2</p>
-    <h1>{{ title() }}</h1>
-    <p>
-      Angular app configured for the Harry Potter API. The list below is loaded from the
-      public character endpoint.
-    </p>
+    <div class="hero-copy">
+      <h1>The Wizarding World</h1>
+      <p>
+        Step into the wizarding world and explore your favorite Harry Potter
+        characters.
+      </p>
+    </div>
 
     <div class="content-layout">
       <app-characterfilter (houseChanged)="onHouseChanged($event)" />

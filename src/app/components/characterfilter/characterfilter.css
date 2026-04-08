@@ -23,7 +23,7 @@
 
 .filter-copy h2 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: clamp(1.35rem, 3vw, 1.8rem);
   color: #172554;
 }
