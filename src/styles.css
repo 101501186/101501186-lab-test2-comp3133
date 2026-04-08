@@ -8,3 +8,13 @@ body {
 body {
   font-family: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
 }
+
+.section-label {
+  margin: 0;
+  font-family: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0f766e !important;
+}
