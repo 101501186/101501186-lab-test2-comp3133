@@ -1,59 +1,109 @@
-# 101501186LabTest2Comp3133
+# The Wizarding World
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.3.
+The Wizarding World is an Angular application that uses the public Harry Potter API to display character information from the Harry Potter universe.
 
-## Development server
+This project was created for COMP3133 Lab Test 2. The goal was to build an Angular app that fetches data from an external API, displays it in multiple components, and allows users to filter and explore character details.
 
-To start a local development server, run:
+## What the app does
+
+- Shows a list of Harry Potter characters
+- Displays each character's name, house, and image
+- Opens a detailed character view when a character is selected
+- Filters characters by Hogwarts house
+- Uses Angular signals and Angular control flow syntax such as `@if`, `@for`, and `@switch`
+
+## Built with
+
+- Angular 21
+- TypeScript
+- Angular HttpClient
+- Reactive Forms
+- Harry Potter API: [https://hp-api.onrender.com/](https://hp-api.onrender.com/)
+
+## Main features
+
+### Character List
+
+The app loads character data from the API and displays it in a card layout. Each card includes:
+
+- character name
+- house
+- image
+
+### Character Details
+
+Clicking a character opens a larger detail view with:
+
+- name
+- species
+- house
+- wizard status
+- ancestry
+- wand details
+- actor
+- image
+
+### House Filter
+
+Users can filter characters by:
+
+- Gryffindor
+- Slytherin
+- Hufflepuff
+- Ravenclaw
+- All Houses
+
+## Project structure
+
+- `src/app/services/hp-api.service.ts`  
+  Handles API requests.
+
+- `src/app/models/`  
+  Contains the TypeScript interfaces used in the app.
+
+- `src/app/components/characterlist/`  
+  Displays the list of characters.
+
+- `src/app/components/characterdetails/`  
+  Displays detailed information for a selected character.
+
+- `src/app/components/characterfilter/`  
+  Contains the dropdown filter for Hogwarts houses.
+
+## How to run the project
+
+Install dependencies:
 
 ```bash
-ng serve
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Start the development server:
 
 ```bash
-ng generate component component-name
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Then open:
 
 ```bash
-ng generate --help
+http://localhost:4200
 ```
 
-## Building
+## Build
 
-To build the project run:
+To build the project:
 
 ```bash
-ng build
+npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## API endpoints used
 
-## Running unit tests
+- `GET /api/characters`
+- `GET /api/characters/house/:house`
+- `GET /api/character/:id`
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Author
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Student ID: `101501186`
