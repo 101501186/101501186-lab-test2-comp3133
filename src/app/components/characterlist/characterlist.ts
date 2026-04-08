@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject, output, signal } from '@angular/core';
+import { Component, effect, inject, input, output, signal } from '@angular/core';
 
 import { Character } from '../../models/character.model';
 import { HpApiService } from '../../services/hp-api.service';
@@ -10,9 +10,10 @@ import { HpApiService } from '../../services/hp-api.service';
   templateUrl: './characterlist.html',
   styleUrl: './characterlist.css'
 })
-export class Characterlist implements OnInit {
+export class Characterlist {
   private readonly hpApiService = inject(HpApiService);
 
+  readonly houseFilter = input('all');
   readonly characterSelected = output<string>();
 
   protected readonly characters = signal<Character[]>([]);
@@ -20,20 +21,26 @@ export class Characterlist implements OnInit {
   protected readonly errorMessage = signal('');
   protected readonly selectedCharacterId = signal<string | null>(null);
 
-  ngOnInit(): void {
-    this.loadCharacters();
+  constructor() {
+    effect(() => {
+      const house = this.houseFilter();
+      this.loadCharacters(house);
+    });
   }
 
-  private loadCharacters(): void {
-    this.hpApiService.getCharacters().subscribe({
+  private loadCharacters(house: string = this.houseFilter()): void {
+    this.isLoading.set(true);
+    this.errorMessage.set('');
+
+    const request =
+      house === 'all'
+        ? this.hpApiService.getCharacters()
+        : this.hpApiService.getCharactersByHouse(house);
+
+    request.subscribe({
       next: (characters) => {
         this.characters.set(characters);
-        const firstCharacterId = characters[0]?.id ?? null;
-        this.selectedCharacterId.set(firstCharacterId);
-
-        if (firstCharacterId) {
-          this.characterSelected.emit(firstCharacterId);
-        }
+        this.selectedCharacterId.set(null);
 
         this.isLoading.set(false);
       },

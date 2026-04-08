@@ -8,7 +8,11 @@
     </p>
 
     <div class="content-layout">
-      <app-characterlist (characterSelected)="onCharacterSelected($event)" />
+      <app-characterfilter (houseChanged)="onHouseChanged($event)" />
+      <app-characterlist
+        [houseFilter]="selectedHouse()"
+        (characterSelected)="onCharacterSelected($event)"
+      />
     </div>
   </section>
 </main>

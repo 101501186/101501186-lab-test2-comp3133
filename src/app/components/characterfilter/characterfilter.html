@@ -1,0 +1,25 @@
+<section class="filter-panel">
+  <div class="filter-copy">
+    <p class="filter-tag">House Filter</p>
+    <h2>Browse by Hogwarts House</h2>
+    <p>
+      Choose a house to load only those characters. Select <strong>All Houses</strong>
+      to view the complete character list, including characters with no assigned house.
+    </p>
+  </div>
+
+  <label class="filter-field" for="house">
+    <span>Choose a house</span>
+    <select id="house" [formControl]="houseControl">
+      @for (house of houses; track house) {
+        <option [value]="house">
+          {{
+            house === 'all'
+              ? 'All Houses'
+              : house.charAt(0).toUpperCase() + house.slice(1)
+          }}
+        </option>
+      }
+    </select>
+  </label>
+</section>

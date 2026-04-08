@@ -1,0 +1,55 @@
+.filter-panel {
+  display: grid;
+  gap: 1rem;
+  padding: 1.4rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.9));
+}
+
+.filter-copy {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.filter-tag {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0f766e;
+}
+
+.filter-copy h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  color: #172554;
+}
+
+.filter-copy p {
+  margin: 0;
+  color: #4b5563;
+}
+
+.filter-field {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.filter-field span {
+  font-size: 0.95rem;
+}
+
+.filter-field select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 16px;
+  background: #ffffff;
+  color: #111827;
+  font: inherit;
+}
